@@ -1,3 +1,4 @@
+import sys
 def check_disk_content(file):
     try:
         number_of_disk = int(file.readline())
@@ -44,8 +45,11 @@ def check_disk_moves(moves_loop):
             print("NO,You missed,weong solution of Hanoi") #final situation is not like start
             exit(1)
                    
-    
-file = open("test5.txt")
+try:
+    file = open(sys.argv[1])
+except IndexError:
+    print("Enter file name to test, python hanoy.py test(3,4,5).txt")
+    exit(1)  
 NUM_OF_RODS=3
 moves = []
 moves_loop=0
